@@ -6,6 +6,6 @@ Para poder tener acceso a los datos de la DB hay que desabilitar la opcion RLS (
 
 ## Como correr la app
 
-Para correr el app se debe isntalar Express y Nodemon. Seguido de modificar package.json agregando: "dev": "npx nodemon app.js", luego en la terminal se escribe:
+Para correr el app se debe instalar Express y Nodemon. Seguido de modificar package.json agregando: "dev": "npx nodemon app.js", luego en la terminal se escribe:
 
 ```npm run dev```
