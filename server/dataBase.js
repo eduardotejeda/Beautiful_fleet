@@ -58,5 +58,15 @@ async function createVehiculo(
 }
 
 
+/* --------- Usuario ---------- */
+
+
+
+
+/* ----------- Combustible ----------- */
+
+
+/* ----------- Kilometraje ----------- */
+
 
 export { reqVehiculos, createVehiculo };
