@@ -1,4 +1,5 @@
-import { reqVehiculos } from "./dataBase.js";
-console.log("hola");
 const user = 1;
-reqVehiculos(user);
+import {} from './CRUD/Combustible.js';
+import {} from './CRUD/Mantenimiento.js';
+import {} from './CRUD/Usuario.js';
+import {reqVehiculos, createVehiculo, deletVehiculo} from './CRUD/Vehiculos.js';
