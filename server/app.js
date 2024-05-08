@@ -1,28 +1,49 @@
 const user = 1;
-import express from 'express';
+import express from "express";
 import {} from "./CRUD/Combustible.js";
 import {
-    reqMantenimientos,
-    createMantenimientos,
-    deletMantenimiento,
-} from "./CRUD/Mantenimiento.js";
-import {} from "./CRUD/Usuario.js";
+    getUser,
+    createUsurio,
+    deleteUsuario,
+    updateUsuario,
+} from "./CRUD/Usuario.js";
+
 import {
     reqVehiculos,
     createVehiculo,
     deletVehiculo,
 } from "./CRUD/Vehiculos.js";
+
+import {
+    reqMantenimientos,
+    createMantenimientos,
+    deletMantenimiento,
+} from "./CRUD/Mantenimiento.js";
+
+import {} from "./CRUD/Usuario.js";
+
+import {
+    reqVehiculos,
+    createVehiculo,
+    deletVehiculo,
+} from "./CRUD/Vehiculos.js";
+
+//Ejemplos de funciones para llamar usuario
+// getUser(1)
+// createUsurio("prueba","ramos@mango.com","password")
+//Para borrar usuario
+// deleteUsuario(7)
+//Para actualizar usuario
+// updateUsuario(8)
+
 const app = express();
-app.use(express.json()); 
+app.use(express.json());
 
-
-
-app.get("/vehiculos/:id", async (req, res) =>{
+app.get("/vehiculos/:id", async (req, res) => {
     const vehiculos = await reqVehiculos(req.params.id);
     res.status(200).send(vehiculos);
-})
+});
 
 app.listen(8080, () => {
-    console.log("Server in port 8080")
-})
-
+    console.log("Server in port 8080");
+});
