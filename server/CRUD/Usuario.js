@@ -35,7 +35,7 @@ async function createUsurio( nombre_usuario, email, password) {
         email, password,
     });
     if (error) {
-        console.error("Error al consultar datos:", error.message);
+        console.error("Error al crear datos:", error.message);
         return;
     }
 }
@@ -56,4 +56,24 @@ async function deleteUsuario(id) {
     }
 }
 
-export {getUser, createUsurio, deleteUsuario};
+//Update usuario
+
+async function updateUsuario(id) {
+    const tableName = "usuario"
+    const {data, error} = await supabase
+    .from(tableName)
+    .update({
+        email: "nuevoemail@gmail.com",
+        password: "nuevo password",
+        nombre_usuario: "nuevo nombre de usuario"
+    })
+    .eq("id", id)
+    .select()
+    if (error) {
+        console.error("Error al actualizar datos:", error.message);
+        return;
+    }
+
+}
+
+export {getUser, createUsurio, deleteUsuario, updateUsuario};
