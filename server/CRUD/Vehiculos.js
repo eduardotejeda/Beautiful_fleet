@@ -1,12 +1,12 @@
 import {supabase} from '../dataBase.js';
 
-
+    // Nombre de la tabla que quieres consultar
+    const tableName = "vehiculo";
 
 
 /* ----------------Consulta todos los datos de la tabla */
 async function reqVehiculos(user) {
-    // Nombre de la tabla que quieres consultar
-    const tableName = "vehiculo";
+
     // Realiza una consulta a la tabla especificada
     const { data, error } = await supabase
         .from(tableName)
@@ -17,7 +17,7 @@ async function reqVehiculos(user) {
         return;
     } else {
         // Procesa los datos obtenidos
-        console.log("Datos de la tabla:", data);
+        return(data);
     }
 }
 
@@ -36,7 +36,7 @@ async function createVehiculo(
     fecha_ultimo_matenimiento,
     km_mantenimiento
 ) {
-    const tableName = "vehiculo";
+    
     const { error } = await supabase.from(tableName).insert({
         created_at: created_at,
         ficha: ficha,
@@ -57,10 +57,8 @@ async function createVehiculo(
 }
 /* --------borrar vehiculo---------- */
 async function deletVehiculo(idVehiculo) {
-    // Nombre de la tabla que quieres consultar
-    const tableName = "vehiculo";
     // Realiza una consulta a la tabla especificada
-    const { data, error } = await supabase
+    const { error } = await supabase
         .from(tableName)
         .delete()
         .eq("id", idVehiculo);
