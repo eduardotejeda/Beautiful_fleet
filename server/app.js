@@ -1,18 +1,10 @@
 const user = 1;
 import express from "express";
-import {} from "./CRUD/Combustible.js";
-import {
-    getUser,
-    createUsurio,
-    deleteUsuario,
-    updateUsuario,
-} from "./CRUD/Usuario.js";
+import { getConsumo } from "./CRUD/Combustible.js";
 
-import {
-    reqVehiculos,
-    createVehiculo,
-    deletVehiculo,
-} from "./CRUD/Vehiculos.js";
+//Ejemplos de lectura de tabla cnsm_combustible por id_devehiculo
+// getConsumo("1")
+
 
 import {
     reqMantenimientos,
