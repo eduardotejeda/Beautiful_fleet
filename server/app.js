@@ -20,7 +20,13 @@ import {
     deletMantenimiento,
 } from "./CRUD/Mantenimiento.js";
 
-import {} from "./CRUD/Usuario.js";
+import { 
+    getUser,
+    createUsurio,
+    deleteUsuario,
+    updateUsuario
+
+} from "./CRUD/Usuario.js";
 
 import {
     reqVehiculos,
