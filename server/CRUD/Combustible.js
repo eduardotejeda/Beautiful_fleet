@@ -14,4 +14,20 @@ async function getConsumo(id_vehiculo) {
     }
 }
 
-export { getConsumo };
+// Agregar consumo de vehiculo, hay que tambien agregar metodo para verificar que el vehiculo existe en la tabla vehiculo antes de ejecutar
+async function addConsumo(id_vehiculo, cnsm_galones, km_vehiculo) {
+    const tableName = "cnsm_combustible";
+    const {data, error} = await supabase
+    .from(tableName)
+    .insert({
+        id_vehiculo,
+        cnsm_galones,
+        km_vehiculo
+    });
+    if(error) {
+        console.error("Error en crear consumeo:", error.message);
+        return;
+    }
+}
+
+export { getConsumo, addConsumo };

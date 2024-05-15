@@ -1,10 +1,15 @@
 const user = 1;
 import express from "express";
-import { getConsumo } from "./CRUD/Combustible.js";
+import { 
+    getConsumo,
+    addConsumo
+
+ } from "./CRUD/Combustible.js";
 
 //Ejemplos de lectura de tabla cnsm_combustible por id_devehiculo
 // getConsumo("1")
-
+// Ejemplo de agregar consumo. El id y el created_at se crean automaticamente
+// addConsumo(9, 11.5, 55600)
 
 import {
     reqMantenimientos,
