@@ -2,7 +2,8 @@ const user = 1;
 import express from "express";
 import { 
     getConsumo,
-    addConsumo
+    addConsumo,
+    deleteConsumo
 
  } from "./CRUD/Combustible.js";
 
@@ -10,6 +11,8 @@ import {
 // getConsumo("1")
 // Ejemplo de agregar consumo. El id y el created_at se crean automaticamente
 // addConsumo(9, 11.5, 55600)
+//Ejemplo de borrar consumo con id
+// deleteConsumo(14)
 
 import {
     reqMantenimientos,

@@ -14,7 +14,8 @@ async function getConsumo(id_vehiculo) {
     }
 }
 
-// Agregar consumo de vehiculo, hay que tambien agregar metodo para verificar que el vehiculo existe en la tabla vehiculo antes de ejecutar
+// Agregar consumo de vehiculo, hay que tambien agregar metodo para verificar que el vehiculo existe en la tabla vehiculo antes de ejecutar. Para evitar llamas no necesarias
+
 async function addConsumo(id_vehiculo, cnsm_galones, km_vehiculo) {
     const tableName = "cnsm_combustible";
     const {data, error} = await supabase
@@ -30,4 +31,19 @@ async function addConsumo(id_vehiculo, cnsm_galones, km_vehiculo) {
     }
 }
 
-export { getConsumo, addConsumo };
+// Eliminar consumo
+
+async function deleteConsumo(id) {
+    const tableName = "cnsm_combustible";
+    const {data, error} = await supabase
+    .from(tableName)
+    .delete()
+    .eq("id", id);
+    if (error) {
+        console.error("Error al eliminar consumo:", error.message);
+        return;
+    }
+
+}
+
+export { getConsumo, addConsumo, deleteConsumo };
