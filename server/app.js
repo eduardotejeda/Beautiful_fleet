@@ -1,9 +1,9 @@
 const user = 1;
 import express from "express";
 import {
-    getCombustible,
-    createCombustible,
-    deleteCnsmCombustible,
+    getConsumo,
+    createConsumo,
+    deleteConsumo,
 } from "./CRUD/Combustible.js";
 import {
     getMantenimientos,

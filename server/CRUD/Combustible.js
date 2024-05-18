@@ -1,7 +1,7 @@
 import { supabase } from "../dataBase.js";
 const tableName = "cnsm_combustible";
 
-async function getCombustible(idVehiculo) {
+async function getConsumo(idVehiculo) {
     const { data, error } = await supabase
         .from(tableName)
         .select()
@@ -16,7 +16,7 @@ async function getCombustible(idVehiculo) {
     }
 }
 
-async function createCombustible(created_at, id_vehiculo, cnsm_galones, km_vehiculo) {
+async function createConsumo(created_at, id_vehiculo, cnsm_galones, km_vehiculo) {
     const { error } = await supabase.from(tableName).insert({
                 created_at, //"2024-04-17T00:00:00+00:00"
                 id_vehiculo, //1
@@ -32,7 +32,7 @@ async function createCombustible(created_at, id_vehiculo, cnsm_galones, km_vehic
     
 }
 
-async function deleteCnsmCombustible(id) {
+async function deleteConsumo(id) {
     // Realiza una consulta a la tabla especificada
     const { error } = await supabase.from(tableName).delete().eq("id", id);
     if (error) {
@@ -41,4 +41,4 @@ async function deleteCnsmCombustible(id) {
     }
 }
 
-export { getCombustible, createCombustible, deleteCnsmCombustible };
+export { getConsumo, createConsumo, deleteConsumo };
