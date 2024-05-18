@@ -1,6 +1,15 @@
 const user = 1;
 import express from "express";
-import {} from "./CRUD/Combustible.js";
+import {
+    getCombustible,
+    createCombustible,
+    deleteCnsmCombustible,
+} from "./CRUD/Combustible.js";
+import {
+    getMantenimientos,
+    createMantenimientos,
+    deletMantenimiento,
+} from "./CRUD/Mantenimiento.js";
 import {
     getUser,
     createUsurio,
@@ -9,41 +18,57 @@ import {
 } from "./CRUD/Usuario.js";
 
 import {
-    reqVehiculos,
+    getVehiculos,
     createVehiculo,
     deletVehiculo,
+    updateVehiculo,
 } from "./CRUD/Vehiculos.js";
-
-import {
-    reqMantenimientos,
-    createMantenimientos,
-    deletMantenimiento,
-} from "./CRUD/Mantenimiento.js";
-
-import {} from "./CRUD/Usuario.js";
-
-import {
-    reqVehiculos,
-    createVehiculo,
-    deletVehiculo,
-} from "./CRUD/Vehiculos.js";
-
-//Ejemplos de funciones para llamar usuario
-// getUser(1)
-// createUsurio("prueba","ramos@mango.com","password")
-//Para borrar usuario
-// deleteUsuario(7)
-//Para actualizar usuario
-// updateUsuario(8)
 
 const app = express();
 app.use(express.json());
 
 app.get("/vehiculos/:id", async (req, res) => {
-    const vehiculos = await reqVehiculos(req.params.id);
+    const vehiculos = await getVehiculos(req.params.id);
     res.status(200).send(vehiculos);
+});
+
+app.post("/create/vehiculo", async (req, res) => {
+    createVehiculo(
+        req.body.user,
+        req.body.created_at,
+        req.body.ficha,
+        req.body.placa,
+        req.body.marca,
+        req.body.modelo,
+        req.body.ano,
+        req.body.fecha_actual,
+        req.body.fecha_ultimo_mantenimiento,
+        req.body.km_mantenimiento
+    );
 });
 
 app.listen(8080, () => {
     console.log("Server in port 8080");
 });
+
+//-----------------ejemplo de post
+/* 
+app.post("/prueba", async (req, res) => {
+    console.log("nueva consulta de data===========>" )
+    res.status(200).send(req.body);
+});
+ */
+
+//Ejemplo de fetch para enviar datos hacia el backend junto con el fetch
+/* fetch("8080/prueba", {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({mensaje:"Hola desde fetch", hora:"esta es la hora"})
+})
+    .then(response => response.json())
+    .then(data =>{
+        console.log(data);
+    }) */
+
+//createCombustible("2024-03-08 00:00:00+00", 1, 777, 111);
+//createUsurio("nombreusuario","nombreusuario@gmasil.com", "password123123")

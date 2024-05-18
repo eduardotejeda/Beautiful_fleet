@@ -1,17 +1,13 @@
-import {supabase} from '../dataBase.js';
+import { supabase } from "../dataBase.js";
+const tableName = "usuario";
 
-/* 
-
-La tupla usuario contiene: id, created_at, nombre_usuario, emial y password.
-
-Inicio asumiendo que id y created_at se creand automaticamente.
-
+/*
+La tupla usuario contiene: id, created_at, nombre_usuario, email y password.
+Inicio asumiendo que id y created_at se crean automáticamente.
 */
 
-// Funcion para leer usuario
-async function getUser(user) { 
-    // Nombre de la tabla que quieres consultar
-    const tableName = "usuario";
+// Función para leer usuario
+async function getUser(user) {
     // Realiza una consulta a la tabla especificada
     const { data, error } = await supabase
         .from(tableName)
@@ -22,17 +18,17 @@ async function getUser(user) {
         return;
     } else {
         // Procesa los datos obtenidos
-        console.log("Datos de la tabla:", data);
+        return data;
     }
 }
 
-//Funcion para crear usuario. El id y create_at son agregados automaticamente por supabase.
+//Función para crear usuario. El id y create_at son agregados automáticamente por supabase.
 
-async function createUsurio( nombre_usuario, email, password) {
-    const tableName = "usuario";
+async function createUsurio(nombre_usuario, email, password) {
     const { error } = await supabase.from(tableName).insert({
         nombre_usuario,
-        email, password,
+        email,
+        password,
     });
     if (error) {
         console.error("Error al crear datos:", error.message);
@@ -40,16 +36,10 @@ async function createUsurio( nombre_usuario, email, password) {
     }
 }
 
-
 // Borrar usuario
 async function deleteUsuario(id) {
-    // Nombre de la tabla que quieres consultar
-    const tableName = "usuario";
     // Realiza una consulta a la tabla especificada
-    const { data, error } = await supabase
-        .from(tableName)
-        .delete()
-        .eq("id", id);
+    const { error } = await supabase.from(tableName).delete().eq("id", id);
     if (error) {
         console.error("Error al eliminar datos:", error.message);
         return;
@@ -57,23 +47,20 @@ async function deleteUsuario(id) {
 }
 
 //Update usuario
+async function updateUsuario(id, newEmail, newPassword, newUserName) {
+    const { error } = await supabase
+        .from(tableName)
+        .update({
+            email: newEmail,
+            password: newPassword,
+            nombre_usuario: newUserName,
+        })
+        .eq("id", id);
 
-async function updateUsuario(id) {
-    const tableName = "usuario"
-    const {data, error} = await supabase
-    .from(tableName)
-    .update({
-        email: "nuevoemail@gmail.com",
-        password: "nuevo password",
-        nombre_usuario: "nuevo nombre de usuario"
-    })
-    .eq("id", id)
-    .select()
     if (error) {
         console.error("Error al actualizar datos:", error.message);
         return;
     }
-
 }
 
-export {getUser, createUsurio, deleteUsuario, updateUsuario};
+export { getUser, createUsurio, deleteUsuario, updateUsuario };

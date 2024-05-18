@@ -5,7 +5,7 @@ const tableName = "mantenimiento";
 
 
 /* ----------consultar todos los mantenimientos del vehiculo------------ */
-async function reqMantenimientos(idVehiculo) {
+async function getMantenimientos(idVehiculo) {
     // Realiza una consulta a la tabla especificada
     const { data, error } = await supabase
         .from(tableName)
@@ -58,4 +58,4 @@ async function deletMantenimiento(idMantenimiento) {
 }
 
 
-export { reqMantenimientos, createMantenimientos, deletMantenimiento };
+export { getMantenimientos, createMantenimientos, deletMantenimiento };
