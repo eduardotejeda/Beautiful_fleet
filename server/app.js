@@ -3,7 +3,8 @@ import express from "express";
 import { 
     getConsumo,
     addConsumo,
-    deleteConsumo
+    deleteConsumo,
+    updateConsumo
 
  } from "./CRUD/Combustible.js";
 
@@ -13,6 +14,8 @@ import {
 // addConsumo(9, 11.5, 55600)
 //Ejemplo de borrar consumo con id
 // deleteConsumo(14)
+//Ejemplo actualiza consumo con datos pre definidos
+// updateConsumo(15)
 
 import {
     reqMantenimientos,

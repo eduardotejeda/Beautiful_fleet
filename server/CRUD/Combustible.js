@@ -46,4 +46,25 @@ async function deleteConsumo(id) {
 
 }
 
-export { getConsumo, addConsumo, deleteConsumo };
+// Actualizar consumo
+
+//Update usuario
+
+async function updateConsumo(id) {
+    const tableName = "cnsm_combustible"
+    const {data, error} = await supabase
+    .from(tableName)
+    .update({
+        id_vehiculo: 2,
+        cnsm_galones: 10.7,
+        km_vehiculo: 67000
+    })
+    .eq("id", id)
+    .select()
+    if (error) {
+        console.error("Error al actualizar datos:", error.message);
+        return;
+    }
+}
+
+export { getConsumo, addConsumo, deleteConsumo, updateConsumo };
