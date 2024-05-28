@@ -40,12 +40,14 @@ import {
 const app = express();
 app.use(express.json());
 
+
 app.get("/vehiculos/:id", async (req, res) => {
     const vehiculos = await getVehiculos(req.params.id);
     res.status(200).send(vehiculos);
 });
 
 app.post("/create/vehiculo", async (req, res) => {
+    console.log("se ha realizado una petición para crear un vehiculo")
     createVehiculo(
         req.body.user,
         req.body.created_at,
@@ -58,11 +60,14 @@ app.post("/create/vehiculo", async (req, res) => {
         req.body.fecha_ultimo_mantenimiento,
         req.body.km_mantenimiento
     );
+    /* next(); */
+    //HAY UN PROBLEMA CON EL SERVIDOR, NO RESPONDE CORRECTAMENTE A LAS PETICIONES POST
 });
 
 app.listen(8080, () => {
     console.log("Server in port 8080");
 });
+/* crea un bucle for que imprima los números del 1 al 5 */
 
 //-----------------ejemplo de post
 /* 

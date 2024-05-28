@@ -33,6 +33,7 @@ async function createVehiculo(
     fecha_ultimo_matenimiento,
     km_mantenimiento
 ) {
+    console.log("entro a la  funcion")
     const { error } = await supabase.from(tableName).insert({
         created_at: created_at,
         ficha: ficha,
@@ -46,6 +47,7 @@ async function createVehiculo(
         km_mantenimiento: km_mantenimiento,
         creado_por: user,
     });
+    console.log("1")
     if (error) {
         return { nameError: error.message, error: error };
     }
