@@ -21,7 +21,7 @@ async function getVehiculos(user) {
 
 /* --------- crear vehiculo---------- */
 async function createVehiculo(
-    user,
+    creado_por,
     created_at,
     ficha,
     chasis,
@@ -33,25 +33,55 @@ async function createVehiculo(
     fecha_ultimo_matenimiento,
     km_mantenimiento
 ) {
-    console.log("entro a la  funcion")
-    const { error } = await supabase.from(tableName).insert({
-        created_at: created_at,
-        ficha: ficha,
-        chasis: chasis,
-        placa: placa,
-        marca: marca,
-        modelo: modelo,
-        ano: ano,
-        fecha_actual: fecha_actual,
-        fecha_ultimo_matenimiento: fecha_ultimo_matenimiento,
-        km_mantenimiento: km_mantenimiento,
-        creado_por: user,
+    
+    console.log("entro a la  función")
+    const { data , error } = await supabase.from(tableName).insert({
+        created_at,
+        ficha,
+        chasis,
+        placa,
+        marca,
+        modelo,
+        ano,
+        fecha_actual,
+        fecha_ultimo_matenimiento,
+        km_mantenimiento,
+        creado_por,
     });
     console.log("1")
+    console.log("esta es la data: " + data)
+
     if (error) {
+        console.log("ha ocurrido un error");
+        console.log(error);
         return { nameError: error.message, error: error };
     }
 }
+/* {
+    "id": 4,
+    "created_at": "2024-03-08T17:25:40.961469+00:00",
+    "ficha": "Ficha3",
+    "chasis": "Chasis789",
+    "placa": "123XYZ",
+    "marca": "Marca3",
+    "modelo": "Modelo3",
+    "ano": 2023,
+    "fecha_actual": "2024-03-08",
+    "fecha_ultimo_matenimiento": "2024-01-30",
+    "km_mantenimiento": 45000,
+    "creado_por": 3
+  } */
+
+
+
+
+
+
+
+
+
+
+
 /* --------borrar vehiculo---------- */
 async function deletVehiculo(idVehiculo) {
     // Realiza una consulta a la tabla especificada
