@@ -1,1 +1,1 @@
-import { supabase } from "../dataBase";
+/* import { supabase } from "../dataBase"; */

@@ -1,31 +1,15 @@
 const user = 1;
 import express from "express";
-import {
-    getConsumo,
-    createConsumo,
-    deleteConsumo,
-} from "./CRUD/Combustible.js";
-import {
-    getMantenimientos,
-    createMantenimientos,
-    deletMantenimiento,
-} from "./CRUD/Mantenimiento.js";
-import {
-    getUser,
-    createUsurio,
-    deleteUsuario,
-    updateUsuario,
-} from "./CRUD/Usuario.js";
-
-import {
-    getVehiculos,
-    createVehiculo,
-    deletVehiculo,
-    updateVehiculo,
-} from "./CRUD/Vehiculos.js";
+import next from "express";
+import {getConsumo,createConsumo,deleteConsumo} from "./CRUD/Combustible.js";
+import {} from "./CRUD/Kilometraje.js"
+import {getMantenimientos,createMantenimientos,deletMantenimiento} from "./CRUD/Mantenimiento.js";
+import {getUser,createUsurio,deleteUsuario,updateUsuario} from "./CRUD/Usuario.js";
+import {getVehiculos,createVehiculo,deletVehiculo,updateVehiculo,} from "./CRUD/Vehiculos.js";
 
 const app = express();
 app.use(express.json());
+
 
 app.get("/vehiculos/:id", async (req, res) => {
     const vehiculos = await getVehiculos(req.params.id);
@@ -33,6 +17,7 @@ app.get("/vehiculos/:id", async (req, res) => {
 });
 
 app.post("/create/vehiculo", async (req, res) => {
+    console.log("se ha realizado una petición para crear un vehiculo")
     createVehiculo(
         req.body.user,
         req.body.created_at,
@@ -45,11 +30,14 @@ app.post("/create/vehiculo", async (req, res) => {
         req.body.fecha_ultimo_mantenimiento,
         req.body.km_mantenimiento
     );
+    /* next(); */
+    //HAY UN PROBLEMA CON EL SERVIDOR, NO RESPONDE CORRECTAMENTE A LAS PETICIONES POST
 });
 
 app.listen(8080, () => {
     console.log("Server in port 8080");
 });
+/* crea un bucle for que imprima los números del 1 al 5 */
 
 //-----------------ejemplo de post
 /* 
