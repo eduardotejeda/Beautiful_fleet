@@ -1,27 +1,40 @@
 const user = 1;
 import express from "express";
+import { 
+    getConsumo,
+    addConsumo,
+    deleteConsumo,
+    updateConsumo
+
+ } from "./CRUD/Combustible.js";
+
+//Ejemplos de lectura de tabla cnsm_combustible por id_devehiculo
+// getConsumo("1")
+// Ejemplo de agregar consumo. El id y el created_at se crean automaticamente
+// addConsumo(9, 11.5, 55600)
+//Ejemplo de borrar consumo con id
+// deleteConsumo(14)
+//Ejemplo actualiza consumo con datos pre definidos
+// updateConsumo(15)
+
 import {
-    getCombustible,
-    createCombustible,
-    deleteCnsmCombustible,
-} from "./CRUD/Combustible.js";
-import {
-    getMantenimientos,
+    reqMantenimientos,
     createMantenimientos,
     deletMantenimiento,
 } from "./CRUD/Mantenimiento.js";
-import {
+
+import { 
     getUser,
     createUsurio,
     deleteUsuario,
-    updateUsuario,
+    updateUsuario
+
 } from "./CRUD/Usuario.js";
 
 import {
-    getVehiculos,
+    reqVehiculos,
     createVehiculo,
     deletVehiculo,
-    updateVehiculo,
 } from "./CRUD/Vehiculos.js";
 
 const app = express();

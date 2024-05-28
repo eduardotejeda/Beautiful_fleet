@@ -1,44 +1,70 @@
-import { supabase } from "../dataBase.js";
-const tableName = "cnsm_combustible";
+import {supabase} from '../dataBase.js';
 
-async function getCombustible(idVehiculo) {
-    const { data, error } = await supabase
-        .from(tableName)
-        .select()
-        .eq("id_vehiculo", idVehiculo);
+async function getConsumo(id_vehiculo) {
+    const tableName = "cnsm_combustible";
+    const {data, error} = await supabase
+    .from(tableName)
+    .select()
+    .eq("id_vehiculo", id_vehiculo);
     if (error) {
         console.error("Error al consultar datos:", error.message);
-        return error;
-    } else {
-        // Procesa los datos obtenidos
-        console.log(data);
-        return data;
+        return
+    } else { 
+        console.log("Datos de la tabla", data);
     }
 }
 
-async function createCombustible(created_at, id_vehiculo, cnsm_galones, km_vehiculo) {
-    const { error } = await supabase.from(tableName).insert({
-                created_at, //"2024-04-17T00:00:00+00:00"
-                id_vehiculo, //1
-                cnsm_galones, //777,
-                km_vehiculo, //111,
-            }
-        )
-        
+// Agregar consumo de vehiculo, hay que tambien agregar metodo para verificar que el vehiculo existe en la tabla vehiculo antes de ejecutar. Para evitar llamas no necesarias
+
+async function addConsumo(id_vehiculo, cnsm_galones, km_vehiculo) {
+    const tableName = "cnsm_combustible";
+    const { error} = await supabase
+    .from(tableName)
+    .insert({
+        id_vehiculo,
+        cnsm_galones,
+        km_vehiculo
+    });
+    if(error) {
+        console.error("Error en crear consumo:", error.message);
+        return;
+    }
+}
+
+// Eliminar consumo
+
+async function deleteConsumo(id) {
+    const tableName = "cnsm_combustible";
+    const { error} = await supabase
+    .from(tableName)
+    .delete()
+    .eq("id", id);
     if (error) {
-        console.log("ha ocurrido un error: ", error.message);
-        return (error.message);
+        console.error("Error al eliminar consumo:", error.message);
+        return;
     }
-    
+
 }
 
-async function deleteCnsmCombustible(id) {
-    // Realiza una consulta a la tabla especificada
-    const { error } = await supabase.from(tableName).delete().eq("id", id);
+// Actualizar consumo
+
+//Update usuario
+
+async function updateConsumo(id) {
+    const tableName = "cnsm_combustible"
+    const { error} = await supabase
+    .from(tableName)
+    .update({
+        id_vehiculo: 2,
+        cnsm_galones: 10.7,
+        km_vehiculo: 67000
+    })
+    .eq("id", id)
+    .select()
     if (error) {
-        console.error("Error al eliminar datos:", error.message);
-        return (error.message);
+        console.error("Error al actualizar datos:", error.message);
+        return;
     }
 }
 
-export { getCombustible, createCombustible, deleteCnsmCombustible };
+export { getConsumo, addConsumo, deleteConsumo, updateConsumo };
