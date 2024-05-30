@@ -1,5 +1,6 @@
 const user = 1;
 import express from "express";
+
 import { 
     getConsumo,
     addConsumo,
@@ -36,6 +37,23 @@ import {
     createVehiculo,
     deletVehiculo,
 } from "./CRUD/Vehiculos.js";
+
+//Ejemplos de funciones para llamar usuario
+// getUser(1)
+// createUsurio("prueba","ramos@mango.com","password")
+//Para borrar usuario
+// deleteUsuario(7)
+//Para actualizar usuario
+// updateUsuario(8)
+
+import {
+    leerKm, 
+    createKm
+} from "./CRUD/Kilometraje.js";
+
+//Ejemplos
+// leerKm(1)
+createKm(3,120566) 
 
 const app = express();
 app.use(express.json());
