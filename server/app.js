@@ -6,6 +6,8 @@ import {
     deleteConsumo,
 } from "./CRUD/Combustible.js";
 
+/* ---------------cambio de prueba---------------------- */
+
 //Ejemplos de lectura de tabla cnsm_combustible por id_devehiculo
 // getConsumo("1")
 // Ejemplo de agregar consumo. El id y el created_at se crean automaticamente
