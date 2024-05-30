@@ -44,12 +44,17 @@ import {
 
 import {
     leerKm, 
-    createKm
+    createKm,
+    deleteKM,
+    updateKm
 } from "./CRUD/Kilometraje.js";
 
 //Ejemplos
 // leerKm(1)
-createKm(3,120566) 
+// createKm(3,120566) 
+// updateKm(8, 88888)
+// deleteKM(8)
+
 
 const app = express();
 app.use(express.json());
