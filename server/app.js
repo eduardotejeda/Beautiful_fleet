@@ -99,7 +99,7 @@ app.post("/prueba", async (req, res) => {
  */
 
 //Ejemplo de fetch para enviar datos hacia el backend junto con el fetch
-fetch("http://localhost:8080/create/vehiculo", {
+/* fetch("http://localhost:8080/create/vehiculo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -120,6 +120,6 @@ fetch("http://localhost:8080/create/vehiculo", {
     .then((data) => {
         console.log(data);
     });
-
+ */
 //createCombustible("2024-03-08 00:00:00+00", 1, 777, 111);
 //createUsurio("nombreusuario","nombreusuario@gmasil.com", "password123123")
