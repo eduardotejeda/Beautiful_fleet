@@ -29,15 +29,28 @@ if (error) {
 
 //Borrar
 async function deleteKM(id) {
-    console.log("hotla")
+    const {error} = await supabase
+    .from(tableName)
+    .delete()
+    .eq("id", id)
+
+    if (error) {
+        console.error("Error al borrar datos:", error.message);
+        return;
+    }
 }
 
 //Actualiar
-async function updateKm(id) {
-    console.log("hotla")
+async function updateKm(id,kilometraje) {
+    const {error} = await supabase
+    .from(tableName)
+    .update({
+        kilometraje
+    })
+    .eq("id", id)
 }
 
 
-export {leerKm, createKm};
+export {leerKm, createKm, deleteKM, updateKm};
 
 
