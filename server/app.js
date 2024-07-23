@@ -24,6 +24,10 @@ import {
     deletMantenimiento,
 } from "./CRUD/Mantenimiento.js";
 
+// reqMantenimientos(1)
+// createMantenimientos('09:43:12', 9, 68000, 'cambio de aceite y filtros')
+// deletMantenimiento(14)
+
 import { 
     getUser,
     createUsurio,
@@ -32,12 +36,6 @@ import {
 
 } from "./CRUD/Usuario.js";
 
-import {
-    reqVehiculos,
-    createVehiculo,
-    deletVehiculo,
-} from "./CRUD/Vehiculos.js";
-
 //Ejemplos de funciones para llamar usuario
 // getUser(1)
 // createUsurio("prueba","ramos@mango.com","password")
@@ -45,6 +43,14 @@ import {
 // deleteUsuario(7)
 //Para actualizar usuario
 // updateUsuario(8)
+
+import {
+    reqVehiculos,
+    createVehiculo,
+    deletVehiculo,
+} from "./CRUD/Vehiculos.js";
+
+
 
 import {
     leerKm, 
