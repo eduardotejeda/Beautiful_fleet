@@ -28,7 +28,7 @@ async function createMantenimientos(
     km_vehiculo,
     descripcion
 ) {
-    // Realiza una consulta a la tabla especificada
+    
     const { error } = await supabase
         .from(tableName)
         .insert({
@@ -37,6 +37,11 @@ async function createMantenimientos(
             km_vehiculo: km_vehiculo,
             descripcion: descripcion,
         });
+        //Para ver la data enviada en la terminal
+        console.log('created_at:', created_at,
+            'id_vehiculo:', id_vehiculo,
+            'km_vehiculo:', km_vehiculo,
+            'descripcion:', descripcion)
     if (error) {
         console.error("Error al insertar datos:", error.message);
         return;
