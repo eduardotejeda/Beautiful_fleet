@@ -49,7 +49,8 @@ import {
     deletVehiculo,
 } from "./CRUD/Vehiculos.js";
 
-
+// reqVehiculos('F58')
+//createVehiculo
 
 import {
     leerKm, 
