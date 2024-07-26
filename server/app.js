@@ -108,27 +108,27 @@ app.post("/prueba", async (req, res) => {
  */
 
 //Ejemplo de fetch para enviar datos hacia el backend junto con el fetch
-fetch("http://localhost:8080/create/vehiculo", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-        created_at: "2024-03-02T02:00:00+00:00",
-        ficha: "DDD",
-        chasis: "A3142324FG4545",
-        placa: "DDD",
-        marca: "Hyundai",
-        modelo: "H-100",
-        ano: 2010,
-        fecha_actual: "2024-05-20",
-        fecha_ultimo_matenimiento: "2024-02-24",
-        km_mantenimiento: 20000,
-        creado_por: 3,
-    }),
-})
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-    });
+// fetch("http://localhost:8080/create/vehiculo", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//         created_at: "2024-03-02T02:00:00+00:00",
+//         ficha: "DDD",
+//         chasis: "A3142324FG4545",
+//         placa: "DDD",
+//         marca: "Hyundai",
+//         modelo: "H-100",
+//         ano: 2010,
+//         fecha_actual: "2024-05-20",
+//         fecha_ultimo_matenimiento: "2024-02-24",
+//         km_mantenimiento: 20000,
+//         creado_por: 3,
+//     }),
+// })
+//     .then((response) => response.json())
+//     .then((data) => {
+//         console.log(data);
+//     });
 
 //createCombustible("2024-03-08 00:00:00+00", 1, 777, 111);
 //createUsurio("nombreusuario","nombreusuario@gmasil.com", "password123123")
