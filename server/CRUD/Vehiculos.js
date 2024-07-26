@@ -132,4 +132,4 @@ async function updateVehiculo(
     }
 }
 
-export { getVehiculos, createVehiculo, deletVehiculo, updateVehiculo };
+export { reqVehiculos, createVehiculo, deletVehiculo, updateVehiculo };

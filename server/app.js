@@ -18,7 +18,7 @@ import {
 // updateConsumo(15)
 
 import {
-    regMantenimientos,
+    getMantenimientos,
     createMantenimientos,
     deletMantenimiento,
 } from "./CRUD/Mantenimiento.js";
@@ -47,6 +47,7 @@ import {
     reqVehiculos,
     createVehiculo,
     deletVehiculo,
+    updateVehiculo
 } from "./CRUD/Vehiculos.js";
 
 // reqVehiculos('F58')
