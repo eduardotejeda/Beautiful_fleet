@@ -4,12 +4,13 @@ import { supabase } from "../dataBase.js";
 const tableName = "vehiculo";
 
 /* ----------------Consulta todos los datos de la tabla */
-async function getVehiculos(user) {
+async function reqVehiculos(ficha) {
     // Realiza una consulta a la tabla especificada
     const { data, error } = await supabase
         .from(tableName)
         .select()
-        .eq("creado_por", user);
+        .eq("ficha", ficha);
+        console.log(data)
     if (error) {
         console.error("Error al consultar datos:", error.message);
         return;
@@ -131,4 +132,4 @@ async function updateVehiculo(
     }
 }
 
-export { getVehiculos, createVehiculo, deletVehiculo, updateVehiculo };
+export { reqVehiculos, createVehiculo, deletVehiculo, updateVehiculo };
